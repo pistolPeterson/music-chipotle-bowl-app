@@ -11,6 +11,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@salt-ds/core": "^1.42.0",
+    "@salt-ds/icons": "^1.13.2",
+    "@salt-ds/theme": "^1.28.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
