@@ -1,29 +1,24 @@
 .mealTitle {
-  background-color: aqua;
   height: 350px;
-  width: 85%;
+  width: 45%;
   margin-left: auto;
   margin-right: auto;
 
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
-.mealTitle-img {
-  border-style: dashed;
+.left-cont {
   width: 30%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 30px;
 }
-.mealTitle-text-section {
-  border-style: dashed;
+.right-cont {
   width: 50%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 50px;
 }
 
 .meal-img {
-  height: 200px;
-  width: 200px;
+  height: 100%;
+  width: 100%;
 }
