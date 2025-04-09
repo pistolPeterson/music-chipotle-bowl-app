@@ -4,13 +4,9 @@ import { MealTitle } from './features/meal-title/MealTitle.jsx';
 function App() {
   return (
     <>
-      <MealTitle exampleProp="hi?"></MealTitle>
-      <Divider></Divider>
-      <div className="card">
-        <Button sentiment="accented" appearance="solid" loading="true">
-          Button
-        </Button>
-        <p>Test Paragraph</p>
+      <div className="main-container">
+        <MealTitle></MealTitle>
+        <Divider></Divider>
       </div>
     </>
   );

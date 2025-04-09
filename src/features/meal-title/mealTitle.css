@@ -1,6 +1,6 @@
 .mealTitle {
-  height: 350px;
-  width: 45%;
+  /* height: 2%; */
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
 
@@ -14,8 +14,11 @@
   margin: 30px;
 }
 .right-cont {
-  width: 50%;
+  width: 60%;
   margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .meal-img {
