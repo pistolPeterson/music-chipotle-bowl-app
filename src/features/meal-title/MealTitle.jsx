@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './mealTitle.css';
 import image1 from '../../assets/music chipotle bowl.png';
-import { Display1, Display2, Display3, Divider } from '@salt-ds/core';
+import { Display1, Display2, Display3 } from '@salt-ds/core';
 
-export const MealTitle = () => {
-  // const [state, setState] = useState(null);
-
-  //Use salt ui text field
+const MealTitle = () => {
   return (
     <div className="mealTitle">
       <div className="left-cont">
-        <img className="meal-img" src={image1} />
+        <img
+          className="meal-img"
+          src={image1}
+          alt="Bowl with ingredients representing a music theme"
+        />
       </div>
       <div className="right-cont">
         <Display2 className="right-cont-child">Build Your</Display2>
