@@ -9,10 +9,6 @@ import {
 import { H1 } from '@salt-ds/core';
 import PeteCard from '../../components/PeteCard.jsx';
 
-//remove hardcoded values so far
-//begin selectable card component! woo! hardcode values for now
-//refactor card to take in data
-//add feature that in dev it will render some cards
 // selectable card will show a pop up system with text (has to read from the card selected)
 //one multiselect genre
 //header and footer
@@ -20,6 +16,8 @@ import PeteCard from '../../components/PeteCard.jsx';
 //api call -> display on page, save to local storage, make prev orders read from local storage
 //prompt engineering
 //unit tests
+const env = import.meta.env.VITE_ENV;
+//const dataToUse = env === 'DEV' ? mockOrderData : getSavedCardComponents();
 
 const cardComponents = mockOrderData.map((item, index) => (
   <PeteCard key={index} title={item.title} date={item.date} text={item.text} />
