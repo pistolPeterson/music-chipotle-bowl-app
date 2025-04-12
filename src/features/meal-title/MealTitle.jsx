@@ -3,7 +3,7 @@ import './mealTitle.css';
 import image1 from '../../assets/music chipotle bowl.png';
 import { Display1, Display2, Display3 } from '@salt-ds/core';
 
-const MealTitle = () => {
+export const MealTitle = () => {
   return (
     <div className="mealTitle">
       <div className="left-cont">
