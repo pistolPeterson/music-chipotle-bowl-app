@@ -19,6 +19,7 @@ export const CAROUSEL_RESPONSIVE_CONFIG = {
 };
 
 export const CARD_WIDTH = '200px';
+export const DIALOG_MAX_HEIGHT = 250;
 
 export const mockOrderData = [
   {

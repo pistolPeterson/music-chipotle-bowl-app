@@ -3,6 +3,7 @@ import './App.css';
 
 import { MealTitle } from './features/meal-title/MealTitle.jsx';
 import PreviousOrders from './features/previous-orders/PreviousOrders.jsx';
+import MusicReferenceForm from './features/music-form/MusicReferenceForm.jsx';
 function App() {
   return (
     <div className="main-container">
@@ -10,6 +11,7 @@ function App() {
       <Divider />
       <div className="order-content">
         <PreviousOrders />
+        <MusicReferenceForm />
       </div>
     </div>
   );
