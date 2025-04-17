@@ -1,16 +1,22 @@
 import React from 'react';
 import PeteMultiSelect from '../../components/PeteMultiselect';
-import { FormField } from '@salt-ds/core';
+import { FormField, Display3 } from '@salt-ds/core';
+import { INSTRUMENTS } from '../../constants/constants';
 
 const MusicReferenceForm = () => {
   // const [state, setState] = useState(null);
 
-  return <div> Music Reference Form
-    <FormField>
-      <PeteMultiSelect>  </PeteMultiSelect>
+  return (
+    <div>
+      <Display3> Music Reference Form</Display3>
+      <FormField>
+        <PeteMultiSelect
+          label="Significant Instruments"
+          comboBoxArray={INSTRUMENTS}
+        ></PeteMultiSelect>
       </FormField>
-    
-     </div>;
+    </div>
+  );
 };
 
 export default MusicReferenceForm;

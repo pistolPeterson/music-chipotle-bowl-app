@@ -1,18 +1,47 @@
+import { ComboBox, FormFieldLabel, Option } from '@salt-ds/core';
+import React, { useEffect, useState } from 'react';
+import { MAX_SELECTIONS } from '../constants/constants';
 
-import { ComboBox, FormFieldLabel } from '@salt-ds/core';
-import React, { useState } from 'react';
+const PeteMultiSelect = ({
+  label = 'Music Selection Default',
+  comboBoxArray,
+}) => {
+  const [value, setValue] = useState('');
+  const [selected, setSelected] = useState([]);
+  const [validationStatus, setValidationStatus] = useState('');
+  const handleChange = (event) => {
+    const value = event.target.value;
+    setValue(value);
+  };
+  const handleSelectionChange = (event, newSelected) => {
+    setSelected(newSelected);
+  };
 
-const PeteMultiSelect = ({ label = 'Music Selection Default' }) => {
-    const [value, setValue] = useState("");
-    const handleChange = (event) => {
-        const value = event.target.value;
-        setValue(value);
-        console.log(value);
+  useEffect(() => {
+    if (selected.length < MAX_SELECTIONS) {
+      setValidationStatus('');
+    } else {
+      setValidationStatus('error');
     }
-
-  return <><FormFieldLabel><div className="">{label} </div></FormFieldLabel>
-  <ComboBox multiselect value={value} onChange={handleChange}></ComboBox>
-  </>;
+  }, [selected]);
+  return (
+    <>
+      <FormFieldLabel>
+        <div className="">{label} </div>
+      </FormFieldLabel>
+      <ComboBox
+        multiselect
+        value={value}
+        onChange={handleChange}
+        onSelectionChange={handleSelectionChange}
+        validationStatus={validationStatus}
+      >
+        {comboBoxArray?.map((element) => (
+          <Option value={element} key={element}></Option>
+        ))}
+      </ComboBox>
+    </>
+  );
 };
 
 export default PeteMultiSelect;
