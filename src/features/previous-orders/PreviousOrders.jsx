@@ -10,7 +10,6 @@ import { H1 } from '@salt-ds/core';
 import PeteCard from '../../components/PeteCard.jsx';
 import PeteDialog from '../../components/PeteDialog.jsx';
 
-//one multiselect genre
 //header and footer
 //new page -> confirm choices
 //api call -> display on page, save to local storage, make prev orders read from local storage

@@ -1,6 +1,6 @@
 import React from 'react';
 import './mealTitle.css';
-import image1 from '../../assets/music chipotle bowl.png';
+import linkedinIcon from '../../assets/listen.png';
 import { Display1, Display2, Display3 } from '@salt-ds/core';
 
 export const MealTitle = () => {
@@ -9,8 +9,8 @@ export const MealTitle = () => {
       <div className="left-cont">
         <img
           className="meal-img"
-          src={image1}
-          alt="Bowl with ingredients representing a music theme"
+          src={linkedinIcon}
+          alt="Icon representing Linkedin, a social media site"
         />
       </div>
       <div className="right-cont">

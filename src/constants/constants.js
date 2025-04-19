@@ -1,3 +1,4 @@
+//CSS DATA
 export const CAROUSEL_RESPONSIVE_CONFIG = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -21,6 +22,7 @@ export const CAROUSEL_RESPONSIVE_CONFIG = {
 export const CARD_WIDTH = '200px';
 export const DIALOG_MAX_HEIGHT = 250;
 
+//FEATURE DATA
 export const mockOrderData = [
   {
     title: 'Peterson Normil',
@@ -72,7 +74,11 @@ export const INSTRUMENTS = [
   'Trombone',
   'Tuba',
   'Woodwinds',
-  'All but solo',
+  'Flute',
+  'Clarinet',
+  'Oboe',
+  'Bassoon',
+  'English Horn',
   'Percussion',
   'Snare',
   'Bass Drum',
@@ -82,8 +88,8 @@ export const INSTRUMENTS = [
   'Vibraphone',
   'Glockenspiel',
   'Kalimba',
-  'Instruments - Organic',
-  'Piano',
+  'Acoustic Piano',
+  'Eletric Piano',
   'Acoustic guitar',
   'Drum set',
   'Acoustic/Upright bass',
@@ -92,7 +98,6 @@ export const INSTRUMENTS = [
   'Female choir',
   'Male choir',
   'Full choir',
-  'Instruments - Digital',
   'Electric Guitar',
   'Electric guitar',
   'Synth - Pad',
@@ -100,5 +105,10 @@ export const INSTRUMENTS = [
   'Synth - Drone',
   'Synth - Lead',
   'Synth - Bass',
-  'Chiptune sounds',
+  'Chiptune/Retro sounds',
 ];
+
+//LINKS
+export const githubLink = 'https://github.com/pistolPeterson';
+export const portfolioLink = 'https://petersonnormilsfx.carrd.co/';
+export const linkedinLink = 'https://www.linkedin.com/in/peterson-normil/';
