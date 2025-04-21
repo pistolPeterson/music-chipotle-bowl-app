@@ -4,6 +4,7 @@
   height: var(--header-height);
   display: flex;
   justify-content: space-between;
+  z-index: 1000;
   box-shadow: 5px 0.1px 18px rgb(220, 220, 220);
   background-color: rgb(255, 255, 255);
 }
