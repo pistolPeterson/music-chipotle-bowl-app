@@ -14,6 +14,7 @@ import Header from './features/header/Header.jsx';
 // - Save/load orders to/from localStorage
 // - Prompt engineering
 // - Write unit test
+// - rest ofc multiselect
 
 function App() {
   return (
