@@ -6,15 +6,8 @@ import {
   CAROUSEL_RESPONSIVE_CONFIG,
   mockOrderData,
 } from '../../constants/constants.js';
-import { H1 } from '@salt-ds/core';
 import PeteCard from '../../components/PeteCard.jsx';
 import PeteDialog from '../../components/PeteDialog.jsx';
-
-//header and footer
-//new page -> confirm choices
-//api call -> display on page, save to local storage, make prev orders read from local storage
-//prompt engineering
-//unit tests
 
 //const env = import.meta.env.VITE_ENV;
 //const dataToUse = env === 'DEV' ? mockOrderData : getSavedCardComponents();
@@ -27,16 +20,6 @@ const PreviousOrders = () => {
     setSelectedCardData(cardData); // Store the data for the dialog
     setIsDialogOpen(true); // Open the dialog
   };
-
-  const cardComponents = mockOrderData.map((item, index) => (
-    <PeteCard
-      key={index}
-      title={item.title}
-      date={item.date}
-      text={item.text}
-      onViewMusicReferences={handleOpenDialog}
-    />
-  ));
 
   const handleCloseDialog = () => {
     setIsDialogOpen(false);
@@ -51,13 +34,21 @@ const PreviousOrders = () => {
         renderButtonGroupOutside={true}
         responsive={CAROUSEL_RESPONSIVE_CONFIG}
       >
-        {cardComponents}
-        <PeteDialog
-          open={isDialogOpen}
-          onClose={handleCloseDialog}
-          cardData={selectedCardData}
-        />
+        {mockOrderData.map((item, index) => (
+          <PeteCard
+            key={index}
+            title={item.title}
+            date={item.date}
+            text={item.text}
+            onViewMusicReferences={handleOpenDialog}
+          />
+        ))}
       </Carousel>
+      <PeteDialog
+        open={isDialogOpen}
+        onClose={handleCloseDialog}
+        cardData={selectedCardData}
+      />
     </div>
   );
 };

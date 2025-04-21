@@ -3,22 +3,20 @@
   width: 100%;
   height: var(--header-height);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   box-shadow: 5px 0.1px 18px rgb(220, 220, 220);
   background-color: rgb(255, 255, 255);
 }
 .header-right {
   display: flex;
-  margin: 0px 25%;
 }
 .header-left {
   display: flex;
   text-align: center;
-  margin: 0px 25%;
 }
 .header-left-text {
   text-align: center;
-  padding: 5px px;
+  padding: 5px;
 }
 .header-right-element {
   padding: 20px 10px;
@@ -26,8 +24,11 @@
 
 .logo-img {
   height: 50px;
-  padding: 7px 0px; /* or use: calc(var(--header-height) * 0.5); */
+  padding: 7px 0px;
   width: auto;
   object-fit: contain;
-  text-decoration: none; /* Optional: removes underline */
+}
+.header-left > a {
+  text-decoration: none;
+  color: inherit;
 }

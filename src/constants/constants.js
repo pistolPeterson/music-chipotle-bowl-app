@@ -89,7 +89,7 @@ export const INSTRUMENTS = [
   'Glockenspiel',
   'Kalimba',
   'Acoustic Piano',
-  'Eletric Piano',
+  'Electric Piano',
   'Acoustic guitar',
   'Drum set',
   'Acoustic/Upright bass',
@@ -99,7 +99,6 @@ export const INSTRUMENTS = [
   'Male choir',
   'Full choir',
   'Electric Guitar',
-  'Electric guitar',
   'Synth - Pad',
   'Synth - Pluck',
   'Synth - Drone',
@@ -109,6 +108,6 @@ export const INSTRUMENTS = [
 ];
 
 //LINKS
-export const githubLink = 'https://github.com/pistolPeterson';
-export const portfolioLink = 'https://petersonnormilsfx.carrd.co/';
-export const linkedinLink = 'https://www.linkedin.com/in/peterson-normil/';
+export const GITHUB_LINK = 'https://github.com/pistolPeterson';
+export const PORTFOLIO_LINK = 'https://petersonnormilsfx.carrd.co/';
+export const LINKEDIN_LINK = 'https://www.linkedin.com/in/peterson-normil/';

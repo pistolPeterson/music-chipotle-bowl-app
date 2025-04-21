@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './mealTitle.css';
-import linkedinIcon from '../../assets/listen.png';
+import peteAudioToolsIcon from '../../assets/listen.png';
 import { Display1, Display2, Display3 } from '@salt-ds/core';
 
 export const MealTitle = () => {
+  const [fadeIn, setFadeIn] = useState(false);
+
+  useEffect(() => {
+    setFadeIn(true);
+  }, []);
+
   return (
-    <div className="mealTitle">
+    <div className={`mealTitle ${fadeIn ? 'fade-in' : ''}`}>
       <div className="left-cont">
         <img
           className="meal-img"
-          src={linkedinIcon}
-          alt="Icon representing Linkedin, a social media site"
+          src={peteAudioToolsIcon}
+          alt="Stylized music-themed illustration"
         />
       </div>
       <div className="right-cont">

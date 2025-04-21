@@ -1,27 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './header.css';
-import { Divider, FlexItem, FlexLayout } from '@salt-ds/core';
+import { Divider } from '@salt-ds/core';
 import logoIcon from '../../assets/listen.png';
 import githubIcon from '../../assets/github.png';
 import audioPortfolioIcon from '../../assets/audio_portfolio.png';
 import linkedinIcon from '../../assets/linkedin.png';
 import {
-  githubLink,
-  linkedinLink,
-  portfolioLink,
+  GITHUB_LINK,
+  LINKEDIN_LINK,
+  PORTFOLIO_LINK,
 } from '../../constants/constants';
-const Header = ({ exampleProp }) => {
-  // const [state, setState] = useState(null);
-
+const Header = () => {
   const iconsData = [
-    { image: githubIcon, link: githubLink },
-    { image: audioPortfolioIcon, link: portfolioLink },
-    { image: linkedinIcon, link: linkedinLink },
+    { image: githubIcon, link: GITHUB_LINK },
+    { image: audioPortfolioIcon, link: PORTFOLIO_LINK },
+    { image: linkedinIcon, link: LINKEDIN_LINK },
   ];
 
-  const icons = iconsData.map((item, index) => (
+  const icons = iconsData.map((item) => (
     <div className="header-right-element" key={item.link}>
-      <a href={item.link} target="_blank">
+      <a href={item.link} target="_blank" rel="noopener noreferrer">
         <img className="logo-img" src={item.image} />
       </a>
     </div>
@@ -31,11 +29,11 @@ const Header = ({ exampleProp }) => {
     <div>
       <div className="header">
         <div className="header-left">
-          <a href="#default" className="logo">
+          <a href="/" className="logo">
             <img
               className="logo-img"
               src={logoIcon}
-              alt="Icon representing Linkedin, a social media site"
+              alt="Pete Audio Tools Logo"
             />
             <div className="header-left-text">Pete Audio Tools</div>
           </a>
@@ -43,7 +41,7 @@ const Header = ({ exampleProp }) => {
 
         <div className="header-right">{icons}</div>
       </div>
-      <Divider variant="teriary"></Divider>
+      <Divider variant="tertiary"></Divider>
     </div>
   );
 };

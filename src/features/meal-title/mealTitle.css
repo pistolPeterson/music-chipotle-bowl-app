@@ -5,14 +5,20 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 1s ease-out,
+    transform 1s ease-out;
 }
 
 .left-cont {
-  width: 35%;
+  width: 30%;
   margin: 5%;
 }
 .right-cont {
-  width: 65%;
+  width: 60%;
   margin: 5%;
   display: flex;
   flex-direction: column;
@@ -24,4 +30,8 @@
   max-width: 100%;
   display: block;
   object-fit: contain;
+}
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
