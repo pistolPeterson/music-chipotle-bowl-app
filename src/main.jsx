@@ -4,13 +4,19 @@ import './index.css';
 import App from './App.jsx';
 
 // Import <SaltProvider>
-import { SaltProvider } from '@salt-ds/core';
+import { SaltProviderNext } from '@salt-ds/core';
 
 // Import theme CSS
 import '@salt-ds/theme/index.css';
 
 createRoot(document.getElementById('root')).render(
-  <SaltProvider>
+  <SaltProviderNext
+    mode="dark"
+    accent="teal"
+    corner="rounded"
+    headingFont="Amplitude"
+    actionFont="Amplitude"
+  >
     <App />
-  </SaltProvider>,
+  </SaltProviderNext>,
 );

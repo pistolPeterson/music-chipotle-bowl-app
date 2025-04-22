@@ -30,6 +30,7 @@
   max-width: 100%;
   display: block;
   object-fit: contain;
+  background-color: grey;
 }
 .fade-in {
   opacity: 1;

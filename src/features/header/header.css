@@ -6,7 +6,7 @@
   justify-content: space-between;
   z-index: 1000;
   box-shadow: 5px 0.1px 18px rgb(220, 220, 220);
-  background-color: rgb(255, 255, 255);
+  background-color: #121212;
 }
 .header-right {
   display: flex;
@@ -28,6 +28,7 @@
   padding: 7px 0px;
   width: auto;
   object-fit: contain;
+  background-color: grey;
 }
 .header-left > a {
   text-decoration: none;
