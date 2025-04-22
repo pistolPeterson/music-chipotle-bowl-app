@@ -1,4 +1,4 @@
-import { Divider } from '@salt-ds/core';
+import { Divider, SaltProviderNext } from '@salt-ds/core';
 
 import './App.css';
 
