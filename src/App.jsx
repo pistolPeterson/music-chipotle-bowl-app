@@ -8,7 +8,7 @@ import MusicReferenceForm from './features/music-form/MusicReferenceForm.jsx';
 import Header from './features/header/Header.jsx';
 
 // TODO:
-// - Dark mode with useContext, use the same colors in salt uiToolkit
+// - theme entire application in dark mode, forget about toggling
 // - Add footer
 // - Add new confirmation page
 // - API call to save orders
