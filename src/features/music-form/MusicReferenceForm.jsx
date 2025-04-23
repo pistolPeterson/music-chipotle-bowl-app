@@ -3,7 +3,7 @@ import PeteMultiSelect from '../../components/PeteMultiselect';
 import { FormField, Display3 } from '@salt-ds/core';
 import { INSTRUMENTS } from '../../constants/constants';
 
-const MusicReferenceForm = () => {
+const MusicReferenceForm = ({ handleValidationError }) => {
   // const [state, setState] = useState(null);
 
   return (
@@ -13,6 +13,7 @@ const MusicReferenceForm = () => {
         <PeteMultiSelect
           label="Significant Instruments"
           comboBoxArray={INSTRUMENTS}
+          handleValidationError={handleValidationError}
         ></PeteMultiSelect>
       </FormField>
     </div>

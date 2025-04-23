@@ -1,0 +1,31 @@
+.footer {
+  /* position: fixed; */
+  width: 100%;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-around;
+  z-index: 1000;
+  background-color: #0f314b;
+  position: fixed; /* Make the footer fixed */
+  bottom: 0; /
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.footer-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+
+.footer-bttn {
+  align-content: center;
+  margin: 0;
+  width: 60%;
+  height: 60%;
+}

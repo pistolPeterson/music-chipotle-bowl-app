@@ -5,6 +5,7 @@ import { MAX_SELECTIONS } from '../constants/constants';
 const PeteMultiSelect = ({
   label = 'Music Selection Default',
   comboBoxArray,
+  handleValidationError = () => {},
 }) => {
   const [value, setValue] = useState('');
   const [selected, setSelected] = useState([]);
@@ -20,8 +21,10 @@ const PeteMultiSelect = ({
   useEffect(() => {
     if (selected.length < MAX_SELECTIONS) {
       setValidationStatus('');
+      handleValidationError(false);
     } else {
       setValidationStatus('error');
+      handleValidationError(true);
     }
   }, [selected]);
   return (

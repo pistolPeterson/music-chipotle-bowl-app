@@ -30,7 +30,7 @@ export const mockOrderData = [
     text: 'Extra spicy jerk chicken bowl with plantains.',
   },
   {
-    title: 'Abigail Daisy',
+    title: 'Patrick Star',
     date: 'February 22, 2024',
     text: 'Vegan lentil stew with quinoa and citrus salad.',
   },
@@ -40,12 +40,12 @@ export const mockOrderData = [
     text: 'Web-slinger special: High-protein meatball sub.',
   },
   {
-    title: 'PN',
+    title: 'Joe Mama',
     date: 'March 1, 2024',
     text: 'Breakfast burrito with avocado and turkey bacon.',
   },
   {
-    title: 'KW',
+    title: 'Katlen Garcia',
     date: 'December 19, 2023',
     text: 'Korean BBQ rice bowl with kimchi slaw.',
   },
