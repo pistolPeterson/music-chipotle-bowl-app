@@ -7,6 +7,7 @@ import PreviousOrders from './features/previous-orders/PreviousOrders.jsx';
 import MusicReferenceForm from './features/music-form/MusicReferenceForm.jsx';
 import Header from './features/header/Header.jsx';
 import Footer from './features/footer/Footer.jsx';
+import ConfirmPanel from './features/confirm-panel/ConfirmPanel.jsx';
 
 // TODO:
 // - Add new confirmation panel
@@ -49,6 +50,7 @@ function App() {
         isButtonDisabled={footerOptions.isButtonDisabled}
         descriptionText={footerOptions.descriptionText}
       />
+      <ConfirmPanel />
     </div>
   );
 }
