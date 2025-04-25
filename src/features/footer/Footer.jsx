@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './footer.css';
 import { Button, Display4, Display3 } from '@salt-ds/core';
 const Footer = ({ isButtonDisabled = false, descriptionText }) => {

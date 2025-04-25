@@ -4,8 +4,6 @@ import { FormField, Display3 } from '@salt-ds/core';
 import { INSTRUMENTS } from '../../constants/constants';
 
 const MusicReferenceForm = ({ handleValidationError }) => {
-  // const [state, setState] = useState(null);
-
   return (
     <div>
       <Display3> Music Reference Form</Display3>
