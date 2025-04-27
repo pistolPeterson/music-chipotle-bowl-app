@@ -1,10 +1,16 @@
 import React from 'react';
 import './footer.css';
 import { Button, Display4, Display3 } from '@salt-ds/core';
-const Footer = ({ isButtonDisabled = false, descriptionText }) => {
+const Footer = ({
+  isButtonDisabled = false,
+  descriptionText,
+  onFormSubmit,
+}) => {
   const defaultDescriptionText =
     "Hi my name is Pete, I'm a music producer and sound designer. ";
-
+  const submitMusicReferenceForm = () => {
+    onFormSubmit();
+  };
   return (
     <footer className="footer">
       <div className="footer-left">
@@ -18,6 +24,7 @@ const Footer = ({ isButtonDisabled = false, descriptionText }) => {
           sentiment="accented"
           className="footer-bttn"
           disabled={isButtonDisabled}
+          onClick={submitMusicReferenceForm}
         >
           Get Your Reference!
         </Button>

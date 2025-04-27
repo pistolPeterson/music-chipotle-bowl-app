@@ -11,6 +11,8 @@ import ConfirmPanel from './features/confirm-panel/ConfirmPanel.jsx';
 
 // TODO:
 // - Add new confirmation panel
+//     handle multople selections
+//      make confitm panel show the selections
 // - API call to save orders
 // - Save/load orders to/from localStorage
 // - Prompt engineering
@@ -19,12 +21,12 @@ import ConfirmPanel from './features/confirm-panel/ConfirmPanel.jsx';
 
 function App() {
   const [footerOptions, setFooterOptions] = useState({
-    isButtonDisabled: true,
+    isButtonDisabled: false,
     descriptionText: null,
   });
-
+  const [isPanelOpened, setIsPanelOpened] = useState(false);
   const [hasValidationError, setHasValidationError] = useState(false);
-
+  const [musicReferenceFormData, setMusicReferenceFormData] = useState([]);
   const handleValidationError = (isError) => {
     setHasValidationError(isError);
     setFooterOptions((prevOptions) => ({
@@ -35,6 +37,22 @@ function App() {
     }));
   };
 
+  const onFormSubmit = () => {
+    // Handle form submission logic here
+    // For example, you can call an API to save the order or show a confirmation panel
+    console.log('Form submitted!');
+    setIsPanelOpened(true);
+  };
+
+  const handleSelectionUpdate = (selectedItems) => {
+    const formattedData = selectedItems.map((item) => ({
+      label: 'Instrument', // Assuming all are instruments
+      value: item,
+    }));
+    setMusicReferenceFormData(formattedData);
+    console.log('Music Form ', musicReferenceFormData);
+  };
+
   return (
     <div>
       <Header />
@@ -43,14 +61,23 @@ function App() {
         <Divider />
         <div className="order-content">
           <PreviousOrders />
-          <MusicReferenceForm handleValidationError={handleValidationError} />
+          <MusicReferenceForm
+            handleValidationError={handleValidationError}
+            onSelectionUpdate={handleSelectionUpdate}
+          />
         </div>
       </main>
       <Footer
         isButtonDisabled={footerOptions.isButtonDisabled}
         descriptionText={footerOptions.descriptionText}
+        onFormSubmit={onFormSubmit}
       />
-      <ConfirmPanel />
+      <ConfirmPanel
+        IsPanelOpened={isPanelOpened}
+        onUserClosePanel={() => {
+          setIsPanelOpened(false);
+        }}
+      />
     </div>
   );
 }

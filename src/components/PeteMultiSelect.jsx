@@ -6,6 +6,7 @@ const PeteMultiSelect = ({
   label = 'Music Selection Default',
   comboBoxArray,
   handleValidationError = () => {},
+  onSelectionUpdate = () => {},
 }) => {
   const [selected, setSelected] = useState([]);
   const [validationStatus, setValidationStatus] = useState('');
@@ -15,6 +16,7 @@ const PeteMultiSelect = ({
   };
   const handleSelectionChange = (event, newSelected) => {
     setSelected(newSelected);
+    onSelectionUpdate(newSelected);
   };
 
   useEffect(() => {

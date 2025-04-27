@@ -10,28 +10,41 @@ import {
 } from '@salt-ds/core';
 import { ReactElement, useState } from 'react';
 
-const ConfirmPanel = () => {
-  const [open, setOpen] = useState(true);
+// hide show confirm panel, based on music reference form results
+const ConfirmPanel = ({
+  IsPanelOpened = true,
+  onUserClosePanel,
+  musicReferenceFormData = [
+    { label: 'Instrument', value: 'Guitar' },
+    { label: 'Instrument', value: 'Piano' },
+    { label: 'Mood', value: 'Rock' },
+    { label: 'Genre', value: 'gas' },
+    { label: 'Genre', value: 'cake' },
+  ],
+}) => {
   const id = useId();
 
-  const handleRequestOpen = () => {
-    setOpen(true);
-  };
-
-  const onOpenChange = (value) => {
-    setOpen(value);
-  };
+  const onOpenChange = (value) => {};
 
   const handleClose = () => {
-    setOpen(false);
+    //prop up to parent component to close the panel
+    onUserClosePanel();
   };
   return (
     <>
-      <Dialog open={open} onOpenChange={onOpenChange} id={id}>
+      <Dialog open={IsPanelOpened} onOpenChange={onOpenChange} id={id}>
         <DialogHeader header="Finalize your Music Bowl" />
         <DialogContent style={{ maxHeight: 400 }}>
           <StackLayout>
             <H3>Your Order!</H3>
+            <p>Here is the summary of your order:</p>
+            <ul>
+              {musicReferenceFormData.map((item, index) => (
+                <li key={index}>
+                  {item.label}: {item.value}
+                </li>
+              ))}
+            </ul>
           </StackLayout>
         </DialogContent>
         <DialogActions>
