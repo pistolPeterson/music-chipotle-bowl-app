@@ -10,10 +10,7 @@ const PeteMultiSelect = ({
 }) => {
   const [selected, setSelected] = useState([]);
   const [validationStatus, setValidationStatus] = useState('');
-  const handleChange = (event) => {
-    const value = event.target.value;
-    setValue(value);
-  };
+  const handleChange = () => {};
   const handleSelectionChange = (event, newSelected) => {
     const labeledSelections = newSelected.map((value) => ({
       label,
