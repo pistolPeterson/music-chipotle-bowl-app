@@ -1,5 +1,5 @@
 import { Divider, SaltProviderNext } from '@salt-ds/core';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 import { MealTitle } from './features/meal-title/MealTitle.jsx';
@@ -44,15 +44,36 @@ function App() {
     setIsPanelOpened(true);
   };
 
-  const handleSelectionUpdate = (selectedItems) => {
-    const formattedData = selectedItems.map((item) => ({
-      label: 'Instrument', // Assuming all are instruments
-      value: item,
-    }));
-    setMusicReferenceFormData(formattedData);
-    console.log('Music Form ', musicReferenceFormData);
+  const handleSelectionUpdate = (updatedLabel, selectedItems) => {
+    setMusicReferenceFormData((prevData) => {
+      // Filter out all previous items with the specific updatedLabel
+      const filteredData = prevData.filter(
+        (item) => item.label !== updatedLabel,
+      );
+
+      // Add the new selections for this label (selectedItems might be empty if deselected)
+      const updatedData = [...filteredData, ...selectedItems];
+
+      // This uniqueness filter might still be good practice, though less critical now
+      // that we remove all previous items for the specific label.
+      const uniqueData = updatedData.filter(
+        (item, index, self) =>
+          index ===
+          self.findIndex(
+            (t) => t.label === item.label && t.value === item.value,
+          ),
+      );
+
+      // Log the state *inside* the state update function for clarity
+      console.log(`Updating data for "${updatedLabel}":`, uniqueData);
+
+      return uniqueData; // Return the new state
+    });
   };
 
+  useEffect(() => {
+    console.log('Music Form ', musicReferenceFormData);
+  }, [musicReferenceFormData]);
   return (
     <div>
       <Header />

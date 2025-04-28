@@ -15,8 +15,13 @@ const PeteMultiSelect = ({
     setValue(value);
   };
   const handleSelectionChange = (event, newSelected) => {
-    setSelected(newSelected);
-    onSelectionUpdate(newSelected);
+    const labeledSelections = newSelected.map((value) => ({
+      label,
+      value,
+    }));
+    setSelected(labeledSelections);
+
+    onSelectionUpdate(label, labeledSelections);
   };
 
   useEffect(() => {

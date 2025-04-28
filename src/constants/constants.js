@@ -62,6 +62,34 @@ export const mockOrderData = [
 ];
 
 export const MAX_SELECTIONS = 5;
+export const MOODS = [
+  'Aggressive',
+  'Slow',
+  'Fast',
+  'Dark',
+  'Dissonant',
+  'Suspenseful',
+  'Epic',
+  'Heroic',
+  'Emotional',
+  'Melancholy',
+  'Nostalgic',
+  'Mysterious',
+  'Ethereal',
+  'Atmospheric',
+  'Mystical',
+  'Otherworldly',
+  'Chaotic',
+  'Peaceful',
+  'Whimsical',
+  'Comedic',
+  'Mechanical',
+  'Dystopian',
+  'Abstract',
+  'Glitchy',
+  'Romantic',
+];
+
 export const INSTRUMENTS = [
   'Strings',
   'Violin',
