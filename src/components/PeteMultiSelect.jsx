@@ -6,15 +6,18 @@ const PeteMultiSelect = ({
   label = 'Music Selection Default',
   comboBoxArray,
   handleValidationError = () => {},
+  onSelectionUpdate = () => {},
 }) => {
   const [selected, setSelected] = useState([]);
   const [validationStatus, setValidationStatus] = useState('');
-  const handleChange = (event) => {
-    const value = event.target.value;
-    setValue(value);
-  };
   const handleSelectionChange = (event, newSelected) => {
-    setSelected(newSelected);
+    const labeledSelections = newSelected.map((value) => ({
+      label,
+      value,
+    }));
+    setSelected(labeledSelections);
+
+    onSelectionUpdate(label, labeledSelections);
   };
 
   useEffect(() => {
@@ -31,7 +34,6 @@ const PeteMultiSelect = ({
       <FormFieldLabel>{label}</FormFieldLabel>
       <ComboBox
         multiselect
-        onChange={handleChange}
         onSelectionChange={handleSelectionChange}
         validationStatus={validationStatus}
       >

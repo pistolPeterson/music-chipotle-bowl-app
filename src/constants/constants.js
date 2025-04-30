@@ -62,6 +62,34 @@ export const mockOrderData = [
 ];
 
 export const MAX_SELECTIONS = 5;
+export const MOODS = [
+  'Aggressive',
+  'Slow',
+  'Fast',
+  'Dark',
+  'Dissonant',
+  'Suspenseful',
+  'Epic',
+  'Heroic',
+  'Emotional',
+  'Melancholy',
+  'Nostalgic',
+  'Mysterious',
+  'Ethereal',
+  'Atmospheric',
+  'Mystical',
+  'Otherworldly',
+  'Chaotic',
+  'Peaceful',
+  'Whimsical',
+  'Comedic',
+  'Mechanical',
+  'Dystopian',
+  'Abstract',
+  'Glitchy',
+  'Romantic',
+];
+
 export const INSTRUMENTS = [
   'Strings',
   'Violin',
@@ -105,6 +133,32 @@ export const INSTRUMENTS = [
   'Synth - Lead',
   'Synth - Bass',
   'Chiptune/Retro sounds',
+];
+
+export const MUSIC_GENRES = [
+  'Orchestral',
+  'Hybrid (Orchestral and synths)',
+  'Minimalist',
+  'Generic Fantasy',
+  'Ethereal Fantasy',
+  'Asian Fantasy',
+  'Tribal Fantasy',
+  'Nordic/Viking Fantasy',
+  'Middle Eastern fantasy',
+  'synthwave/retrowave',
+  'Cyberpunk',
+  'Chiptune',
+  'Rock and Roll / Heavy Metal',
+  'Noir jazz',
+  'Dark ambient',
+  'Space ambient',
+  'Cartoon/slapstick music',
+  'Atonal',
+  'Minimalist horror',
+  'Industrial horror',
+  'Spy/espionage',
+  'Modern Action-Orchestral',
+  'western',
 ];
 
 //LINKS
