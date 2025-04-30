@@ -10,7 +10,6 @@ const PeteMultiSelect = ({
 }) => {
   const [selected, setSelected] = useState([]);
   const [validationStatus, setValidationStatus] = useState('');
-  const handleChange = () => {};
   const handleSelectionChange = (event, newSelected) => {
     const labeledSelections = newSelected.map((value) => ({
       label,
@@ -35,7 +34,6 @@ const PeteMultiSelect = ({
       <FormFieldLabel>{label}</FormFieldLabel>
       <ComboBox
         multiselect
-        onChange={handleChange}
         onSelectionChange={handleSelectionChange}
         validationStatus={validationStatus}
       >

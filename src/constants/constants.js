@@ -135,6 +135,32 @@ export const INSTRUMENTS = [
   'Chiptune/Retro sounds',
 ];
 
+export const MUSIC_GENRES = [
+  'Orchestral',
+  'Hybrid (Orchestral and synths)',
+  'Minimalist',
+  'Generic Fantasy',
+  'Ethereal Fantasy',
+  'Asian Fantasy',
+  'Tribal Fantasy',
+  'Nordic/Viking Fantasy',
+  'Middle Eastern fantasy',
+  'synthwave/retrowave',
+  'Cyberpunk',
+  'Chiptune',
+  'Rock and Roll / Heavy Metal',
+  'Noir jazz',
+  'Dark ambient',
+  'Space ambient',
+  'Cartoon/slapstick music',
+  'Atonal',
+  'Minimalist horror',
+  'Industrial horror',
+  'Spy/espionage',
+  'Modern Action-Orchestral',
+  'western',
+];
+
 //LINKS
 export const GITHUB_LINK = 'https://github.com/pistolPeterson';
 export const PORTFOLIO_LINK = 'https://petersonnormilsfx.carrd.co/';

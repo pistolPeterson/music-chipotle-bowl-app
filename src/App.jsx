@@ -10,14 +10,13 @@ import Footer from './features/footer/Footer.jsx';
 import ConfirmPanel from './features/confirm-panel/ConfirmPanel.jsx';
 
 // TODO:
-// - Add new confirmation panel
-//     handle multople selections
+// add feature keeping track of all the mutliselects error states, to disable the button
 //      make confitm panel show the selections
 // - API call to save orders
 // - Save/load orders to/from localStorage
 // - Prompt engineering
+// understand the SALT ui uncointrolled error message
 // - Write unit test
-// - rest ofc multiselect
 
 function App() {
   const [footerOptions, setFooterOptions] = useState({
@@ -25,12 +24,12 @@ function App() {
     descriptionText: null,
   });
   const [isPanelOpened, setIsPanelOpened] = useState(false);
-  const [hasValidationError, setHasValidationError] = useState(false);
   const [musicReferenceFormData, setMusicReferenceFormData] = useState([]);
+
   const handleValidationError = (isError) => {
-    setHasValidationError(isError);
     setFooterOptions((prevOptions) => ({
       ...prevOptions,
+      isButtonDisabled: isError,
       descriptionText: isError
         ? 'There is an error in your selection. Please fix it.'
         : null,
@@ -38,8 +37,6 @@ function App() {
   };
 
   const onFormSubmit = () => {
-    // Handle form submission logic here
-    // For example, you can call an API to save the order or show a confirmation panel
     console.log('Form submitted!');
     setIsPanelOpened(true);
   };
@@ -54,8 +51,6 @@ function App() {
       // Add the new selections for this label (selectedItems might be empty if deselected)
       const updatedData = [...filteredData, ...selectedItems];
 
-      // This uniqueness filter might still be good practice, though less critical now
-      // that we remove all previous items for the specific label.
       const uniqueData = updatedData.filter(
         (item, index, self) =>
           index ===
@@ -63,9 +58,6 @@ function App() {
             (t) => t.label === item.label && t.value === item.value,
           ),
       );
-
-      // Log the state *inside* the state update function for clarity
-      console.log(`Updating data for "${updatedLabel}":`, uniqueData);
 
       return uniqueData; // Return the new state
     });
