@@ -23,10 +23,10 @@ const PeteMultiSelect = ({
   useEffect(() => {
     if (selected.length < MAX_SELECTIONS) {
       setValidationStatus('');
-      handleValidationError(false);
+      handleValidationError(label, false);
     } else {
       setValidationStatus('error');
-      handleValidationError(true);
+      handleValidationError(label, true);
     }
   }, [selected]);
   return (

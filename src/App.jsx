@@ -10,13 +10,11 @@ import Footer from './features/footer/Footer.jsx';
 import ConfirmPanel from './features/confirm-panel/ConfirmPanel.jsx';
 
 // TODO:
-// add feature keeping track of all the mutliselects error states, to disable the button
-//      make confitm panel show the selections
 // - API call to save orders
 // - Save/load orders to/from localStorage
 // - Prompt engineering
 // understand the SALT ui uncointrolled error message
-// - Write unit test
+// - Write unit tests
 
 function App() {
   const [footerOptions, setFooterOptions] = useState({
@@ -25,15 +23,24 @@ function App() {
   });
   const [isPanelOpened, setIsPanelOpened] = useState(false);
   const [musicReferenceFormData, setMusicReferenceFormData] = useState([]);
+  const [validationErrors, setValidationErrors] = useState({});
 
-  const handleValidationError = (isError) => {
-    setFooterOptions((prevOptions) => ({
-      ...prevOptions,
-      isButtonDisabled: isError,
-      descriptionText: isError
-        ? 'There is an error in your selection. Please fix it.'
-        : null,
-    }));
+  const handleValidationError = (label, isError) => {
+    setValidationErrors((prevErrors) => {
+      const updatedErrors = { ...prevErrors, [label]: isError };
+
+      const hasError = Object.values(updatedErrors).some((error) => error);
+
+      setFooterOptions((prevOptions) => ({
+        ...prevOptions,
+        isButtonDisabled: hasError,
+        descriptionText: hasError
+          ? 'There is an error in your selection. Please fix it.'
+          : null,
+      }));
+
+      return updatedErrors;
+    });
   };
 
   const onFormSubmit = () => {
@@ -86,6 +93,7 @@ function App() {
         onFormSubmit={onFormSubmit}
       />
       <ConfirmPanel
+        musicReferenceFormData={musicReferenceFormData}
         IsPanelOpened={isPanelOpened}
         onUserClosePanel={() => {
           setIsPanelOpened(false);

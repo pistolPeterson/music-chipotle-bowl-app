@@ -9,7 +9,7 @@ import {
   useId,
 } from '@salt-ds/core';
 import { ReactElement, useState } from 'react';
-
+import { usePostData } from '../../hooks/usePostData';
 // hide show confirm panel, based on music reference form results
 const ConfirmPanel = ({
   IsPanelOpened = true,
@@ -22,6 +22,7 @@ const ConfirmPanel = ({
     { label: 'Genre', value: 'cake' },
   ],
 }) => {
+  const { data, loading, error, postData } = usePostData();
   const id = useId();
 
   const onOpenChange = (value) => {};
@@ -30,6 +31,19 @@ const ConfirmPanel = ({
     //prop up to parent component to close the panel
     onUserClosePanel();
   };
+
+  const handleAccept = () => {
+    const url = 'https://api.openai.com/v1/responses';
+    postData(url, apiPrompt(musicReferenceFormData));
+  };
+
+  const apiPrompt = (musicReferenceFormData) => {
+    const prompt = `You are a music expert. Based on the following data, please provide a summary of the music bowl order: ${JSON.stringify(
+      musicReferenceFormData,
+    )}`;
+    return prompt;
+  };
+
   return (
     <>
       <Dialog open={IsPanelOpened} onOpenChange={onOpenChange} id={id}>
@@ -45,6 +59,12 @@ const ConfirmPanel = ({
                 </li>
               ))}
             </ul>
+            {data && (
+              <div>
+                <p>Response from API:</p>
+                <pre>{JSON.stringify(data, null, 2)}</pre>
+              </div>
+            )}
           </StackLayout>
         </DialogContent>
         <DialogActions>
@@ -55,7 +75,7 @@ const ConfirmPanel = ({
           >
             Go Back
           </Button>
-          <Button sentiment="accented" onClick={handleClose}>
+          <Button sentiment="accented" onClick={handleAccept}>
             Accept
           </Button>
         </DialogActions>
