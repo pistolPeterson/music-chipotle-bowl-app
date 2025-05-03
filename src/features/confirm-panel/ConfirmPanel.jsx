@@ -9,9 +9,10 @@ import {
   useId,
   Spinner,
 } from '@salt-ds/core';
-import { ReactElement, useState } from 'react';
+import { ReactElement, use, useState } from 'react';
 import { usePostData } from '../../hooks/usePostData';
 import Markdown from 'react-markdown';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 // hide show confirm panel, based on music reference form results
 const ConfirmPanel = ({
@@ -25,6 +26,7 @@ const ConfirmPanel = ({
     { label: 'Genre', value: 'cake' },
   ],
 }) => {
+  const { setItem } = useLocalStorage('MUSIC_REFERNECES');
   const { data, loading, error, postData } = usePostData();
   const id = useId();
 
@@ -35,15 +37,23 @@ const ConfirmPanel = ({
     onUserClosePanel();
   };
 
-  const handleAccept = () => {
+  const handleAccept = async () => {
     const url = 'https://api.openai.com/v1/responses';
-    postData(url, apiPrompt(musicReferenceFormData));
+    try {
+      const res = await postData(url, apiPrompt(musicReferenceFormData));
+
+      const dataFromApi = res.output[0].content[0].text;
+
+      setItem(`PeteKey ${res.id}`, dataFromApi);
+    } catch (error) {
+      console.error('Error saving data:', error);
+    }
   };
 
   const apiPrompt = (musicReferenceFormData) => {
-    const prompt = `You are a music expert. Based on the following data, please provide 5 classical, game or film music references most similar to these: ${JSON.stringify(
+    const prompt = `You are a music expert. Based on the following data, please provide 10 classical, game or film music references most similar to these: ${JSON.stringify(
       musicReferenceFormData,
-    )}`;
+    )} there must be at least 2 references for each item. Pleae provide just the title, composer and a short description of the music. Do not provide any other information. The references should be in a list format, with each reference on a new line. Please do not include any additional text or explanations. The references should be relevant to the data provided and should reflect the mood, genre, and instrument specified. `;
     return prompt;
   };
 

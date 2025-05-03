@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import './previousOrders.css';
@@ -8,13 +8,16 @@ import {
 } from '../../constants/constants.js';
 import PeteCard from '../../components/PeteCard.jsx';
 import PeteDialog from '../../components/PeteDialog.jsx';
-
+import { useLocalStorage } from '../../hooks/useLocalStorage.jsx';
 //const env = import.meta.env.VITE_ENV;
 //const dataToUse = env === 'DEV' ? mockOrderData : getSavedCardComponents();
 
 const PreviousOrders = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedCardData, setSelectedCardData] = useState(null);
+
+  const { getItem, getAllLocalStorageKeys } =
+    useLocalStorage('MUSIC_REFERNECES');
 
   const handleOpenDialog = (cardData) => {
     setSelectedCardData(cardData); // Store the data for the dialog
@@ -26,6 +29,10 @@ const PreviousOrders = () => {
     setSelectedCardData(null);
   };
 
+  useEffect(() => {
+    const keys = getAllLocalStorageKeys();
+    console.log('All keys in localStorage: ', keys);
+  }, []);
   return (
     <div>
       <div className="carousel-text">ORDER IT AGAIN</div>
@@ -37,7 +44,6 @@ const PreviousOrders = () => {
         {mockOrderData.map((item, index) => (
           <PeteCard
             key={index}
-            title={item.title}
             date={item.date}
             text={item.text}
             onViewMusicReferences={handleOpenDialog}

@@ -10,18 +10,13 @@ import {
 } from '@salt-ds/core';
 import { CARD_WIDTH } from '../constants/constants';
 
-const PeteCard = ({
-  title,
-  date = 'March 7, 2024',
-  text,
-  onViewMusicReferences,
-}) => {
+const PeteCard = ({ date = 'March 7, 2024', text, onViewMusicReferences }) => {
   const [open, setOpen] = useState(false);
   const id = useId();
 
   const handleViewReferencesClick = () => {
     if (onViewMusicReferences) {
-      onViewMusicReferences({ title, text, date });
+      onViewMusicReferences({ text, date });
     }
   };
 
@@ -37,8 +32,8 @@ const PeteCard = ({
       <Card style={{ width: CARD_WIDTH }} accent="top">
         <StackLayout align="start">
           <StackLayout gap={1}>
-            <H3>{title}</H3>
-            <Text color="info">{date}</Text>
+            <H3>{date}</H3>
+            <Text color="info">TIME STAMP GOES HERE</Text>
             <Text>{text}</Text>
           </StackLayout>
           <Button onClick={handleViewReferencesClick}>View References</Button>
