@@ -10,10 +10,8 @@ import Footer from './features/footer/Footer.jsx';
 import ConfirmPanel from './features/confirm-panel/ConfirmPanel.jsx';
 
 // TODO:
-// - API call to save orders
+
 // - Save/load orders to/from localStorage
-// - Prompt engineering
-// understand the SALT ui uncointrolled error message
 // - Write unit tests
 
 function App() {

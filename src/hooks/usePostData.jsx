@@ -1,6 +1,12 @@
 import { useState } from 'react';
 
 const requestParams = (body) => {
+  if (import.meta.env.VITE_AUTH_TOKEN === undefined) {
+    console.error(
+      'VITE_AUTH_TOKEN is not defined in the environment variables. Please check your .env file.',
+    );
+  }
+
   return {
     method: 'POST',
     headers: {

@@ -7,9 +7,12 @@ import {
   H3,
   StackLayout,
   useId,
+  Spinner,
 } from '@salt-ds/core';
 import { ReactElement, useState } from 'react';
 import { usePostData } from '../../hooks/usePostData';
+import Markdown from 'react-markdown';
+
 // hide show confirm panel, based on music reference form results
 const ConfirmPanel = ({
   IsPanelOpened = true,
@@ -38,7 +41,7 @@ const ConfirmPanel = ({
   };
 
   const apiPrompt = (musicReferenceFormData) => {
-    const prompt = `You are a music expert. Based on the following data, please provide a summary of the music bowl order: ${JSON.stringify(
+    const prompt = `You are a music expert. Based on the following data, please provide 5 classical, game or film music references most similar to these: ${JSON.stringify(
       musicReferenceFormData,
     )}`;
     return prompt;
@@ -48,7 +51,7 @@ const ConfirmPanel = ({
     <>
       <Dialog open={IsPanelOpened} onOpenChange={onOpenChange} id={id}>
         <DialogHeader header="Finalize your Music Bowl" />
-        <DialogContent style={{ maxHeight: 400 }}>
+        <DialogContent style={{ maxHeight: 500 }}>
           <StackLayout>
             <H3>Your Order!</H3>
             <p>Here is the summary of your order:</p>
@@ -59,10 +62,19 @@ const ConfirmPanel = ({
                 </li>
               ))}
             </ul>
+
+            {loading && (
+              <Spinner aria-label="loading" role="status" size="small" />
+            )}
+            {error && (
+              <p style={{ color: 'red' }}>
+                Error: {error.message || 'Something went wrong!'}
+              </p>
+            )}
             {data && (
               <div>
-                <p>Response from API:</p>
-                <pre>{JSON.stringify(data, null, 2)}</pre>
+                <p>References:</p>
+                <Markdown>{data.output[0].content[0].text}</Markdown>
               </div>
             )}
           </StackLayout>

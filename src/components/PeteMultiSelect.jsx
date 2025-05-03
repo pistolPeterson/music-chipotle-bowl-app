@@ -36,6 +36,8 @@ const PeteMultiSelect = ({
         multiselect
         onSelectionChange={handleSelectionChange}
         validationStatus={validationStatus}
+        selected={selected.map((s) => s.value)}
+        defaultValue={[]}
       >
         {comboBoxArray?.map((element) => (
           <Option value={element} key={element}></Option>

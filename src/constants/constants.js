@@ -61,7 +61,7 @@ export const mockOrderData = [
   },
 ];
 
-export const MAX_SELECTIONS = 5;
+export const MAX_SELECTIONS = 4;
 export const MOODS = [
   'Aggressive',
   'Slow',
