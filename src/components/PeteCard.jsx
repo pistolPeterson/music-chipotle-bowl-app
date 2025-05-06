@@ -9,6 +9,7 @@ import {
   useId,
 } from '@salt-ds/core';
 import { CARD_WIDTH } from '../constants/constants';
+import Markdown from 'react-markdown';
 
 const PeteCard = ({ date = 'March 7, 2024', text, onViewMusicReferences }) => {
   const [open, setOpen] = useState(false);
@@ -34,7 +35,9 @@ const PeteCard = ({ date = 'March 7, 2024', text, onViewMusicReferences }) => {
           <StackLayout gap={1}>
             <H3>{date}</H3>
             <Text color="info">TIME STAMP GOES HERE</Text>
-            <Text>{text}</Text>
+            <Text>
+              <Markdown>Interesting Title Goes Here</Markdown>
+            </Text>
           </StackLayout>
           <Button onClick={handleViewReferencesClick}>View References</Button>
         </StackLayout>

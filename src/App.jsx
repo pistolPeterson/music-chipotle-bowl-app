@@ -11,7 +11,9 @@ import ConfirmPanel from './features/confirm-panel/ConfirmPanel.jsx';
 
 // TODO:
 
-// - Save/load orders to/from localStorage
+// clean up PeteCard
+// - clean up confirm panel when you close/open it
+// footer blocking the form
 // - Write unit tests
 
 function App() {

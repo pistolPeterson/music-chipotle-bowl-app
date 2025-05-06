@@ -61,6 +61,8 @@ export const mockOrderData = [
   },
 ];
 
+export const LOCAL_STORAGE_KEY = 'PeteKey_';
+
 export const MAX_SELECTIONS = 4;
 export const MOODS = [
   'Aggressive',

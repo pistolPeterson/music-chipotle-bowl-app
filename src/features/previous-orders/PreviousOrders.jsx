@@ -4,6 +4,7 @@ import 'react-multi-carousel/lib/styles.css';
 import './previousOrders.css';
 import {
   CAROUSEL_RESPONSIVE_CONFIG,
+  LOCAL_STORAGE_KEY,
   mockOrderData,
 } from '../../constants/constants.js';
 import PeteCard from '../../components/PeteCard.jsx';
@@ -15,6 +16,7 @@ import { useLocalStorage } from '../../hooks/useLocalStorage.jsx';
 const PreviousOrders = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedCardData, setSelectedCardData] = useState(null);
+  const [storedCards, setStoredCards] = useState([]);
 
   const { getItem, getAllLocalStorageKeys } =
     useLocalStorage('MUSIC_REFERNECES');
@@ -31,8 +33,26 @@ const PreviousOrders = () => {
 
   useEffect(() => {
     const keys = getAllLocalStorageKeys();
-    console.log('All keys in localStorage: ', keys);
+    const filteredKeys = keys.filter((key) =>
+      key.startsWith(LOCAL_STORAGE_KEY),
+    );
+    console.log('All keys in localStorage: ', filteredKeys);
+
+    const cardsFromStorage = filteredKeys.map((key, index) => {
+      const data = getItem(key);
+      return (
+        <PeteCard
+          key={index}
+          date={'REVERsion in progress'}
+          text={data}
+          onViewMusicReferences={handleOpenDialog}
+        />
+      );
+    });
+    console.log('Cards from localStorage: ', cardsFromStorage);
+    setStoredCards(cardsFromStorage);
   }, []);
+
   return (
     <div>
       <div className="carousel-text">ORDER IT AGAIN</div>
@@ -41,14 +61,7 @@ const PreviousOrders = () => {
         renderButtonGroupOutside={true}
         responsive={CAROUSEL_RESPONSIVE_CONFIG}
       >
-        {mockOrderData.map((item, index) => (
-          <PeteCard
-            key={index}
-            date={item.date}
-            text={item.text}
-            onViewMusicReferences={handleOpenDialog}
-          />
-        ))}
+        {storedCards}
       </Carousel>
       <PeteDialog
         open={isDialogOpen}
