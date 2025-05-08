@@ -43,7 +43,6 @@ const PreviousOrders = () => {
       return (
         <PeteCard
           key={index}
-          date={'REVERsion in progress'}
           text={data}
           onViewMusicReferences={handleOpenDialog}
         />
@@ -55,7 +54,6 @@ const PreviousOrders = () => {
 
   return (
     <div>
-      <div className="carousel-text">ORDER IT AGAIN</div>
       <Carousel
         className="carousel"
         renderButtonGroupOutside={true}

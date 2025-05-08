@@ -9,13 +9,6 @@ import Header from './features/header/Header.jsx';
 import Footer from './features/footer/Footer.jsx';
 import ConfirmPanel from './features/confirm-panel/ConfirmPanel.jsx';
 
-// TODO:
-
-// clean up PeteCard
-// - clean up confirm panel when you close/open it
-// footer blocking the form
-// - Write unit tests
-
 function App() {
   const [footerOptions, setFooterOptions] = useState({
     isButtonDisabled: false,
@@ -44,18 +37,15 @@ function App() {
   };
 
   const onFormSubmit = () => {
-    console.log('Form submitted!');
     setIsPanelOpened(true);
   };
 
   const handleSelectionUpdate = (updatedLabel, selectedItems) => {
     setMusicReferenceFormData((prevData) => {
-      // Filter out all previous items with the specific updatedLabel
       const filteredData = prevData.filter(
         (item) => item.label !== updatedLabel,
       );
 
-      // Add the new selections for this label (selectedItems might be empty if deselected)
       const updatedData = [...filteredData, ...selectedItems];
 
       const uniqueData = updatedData.filter(
@@ -70,9 +60,9 @@ function App() {
     });
   };
 
-  useEffect(() => {
-    console.log('Music Form ', musicReferenceFormData);
-  }, [musicReferenceFormData]);
+  // useEffect(() => {
+  //   console.log('Music Form ', musicReferenceFormData);
+  // }, [musicReferenceFormData]);
   return (
     <div>
       <Header />

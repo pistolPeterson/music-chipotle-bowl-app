@@ -11,13 +11,13 @@ import {
 import { CARD_WIDTH } from '../constants/constants';
 import Markdown from 'react-markdown';
 
-const PeteCard = ({ date = 'March 7, 2024', text, onViewMusicReferences }) => {
+const PeteCard = ({ text, onViewMusicReferences }) => {
   const [open, setOpen] = useState(false);
   const id = useId();
 
   const handleViewReferencesClick = () => {
     if (onViewMusicReferences) {
-      onViewMusicReferences({ text, date });
+      onViewMusicReferences({ text });
     }
   };
 
@@ -33,13 +33,11 @@ const PeteCard = ({ date = 'March 7, 2024', text, onViewMusicReferences }) => {
       <Card style={{ width: CARD_WIDTH }} accent="top">
         <StackLayout align="start">
           <StackLayout gap={1}>
-            <H3>{date}</H3>
-            <Text color="info">TIME STAMP GOES HERE</Text>
             <Text>
-              <Markdown>Interesting Title Goes Here</Markdown>
+              <Markdown>Previous Music Reference</Markdown>
             </Text>
           </StackLayout>
-          <Button onClick={handleViewReferencesClick}>View References</Button>
+          <Button onClick={handleViewReferencesClick}>View</Button>
         </StackLayout>
       </Card>
     </>

@@ -1,6 +1,6 @@
 import React from 'react';
 import PeteMultiSelect from '../../components/PeteMultiselect';
-import { FormField, Display3 } from '@salt-ds/core';
+import { FormField, Display3, Divider } from '@salt-ds/core';
 import { INSTRUMENTS, MOODS, MUSIC_GENRES } from '../../constants/constants';
 
 const MusicReferenceForm = ({ handleValidationError, onSelectionUpdate }) => {
@@ -15,6 +15,7 @@ const MusicReferenceForm = ({ handleValidationError, onSelectionUpdate }) => {
           onSelectionUpdate={onSelectionUpdate}
         ></PeteMultiSelect>
       </FormField>
+
       <FormField>
         <PeteMultiSelect
           label="Significant Moods"

@@ -7,7 +7,7 @@ const Footer = ({
   onFormSubmit,
 }) => {
   const defaultDescriptionText =
-    "Hi my name is Pete, I'm a music producer and sound designer. ";
+    'Start selecting your music references to get a personalized reference! You can only select up to 3 items per category.';
   const submitMusicReferenceForm = () => {
     onFormSubmit();
   };

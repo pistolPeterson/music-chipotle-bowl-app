@@ -24,7 +24,6 @@ const PeteDialog = ({ open, onClose, cardData }) => {
       <DialogContent style={{ maxHeight: DIALOG_MAX_HEIGHT }}>
         <StackLayout>
           <H3>{cardData.title}</H3>
-          <p>{cardData.date}</p>
           <Markdown>{cardData.text}</Markdown>
         </StackLayout>
       </DialogContent>

@@ -25,8 +25,9 @@ export const MealTitle = () => {
           <strong>MUSIC BOWL</strong>
         </Display1>
         <Display3 className="right-cont-child">
-          Select your instruments, moods and genres and get your custom made
-          music references!
+          Select your instruments, moods and genres to get your custom made
+          music references with ChatGPT! Generate references from classical,
+          game and film music.
         </Display3>
       </div>
     </div>
